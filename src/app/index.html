@@ -8,20 +8,22 @@
   <body>
     <h1 id="title">家計簿アプリ</h1>
     <p class="fail">ログイン失敗</p>
-    <form>
+    <form action="succeed.html" method="post">
     <div class="user_info">
       <label>メールアドレス</label>
-      <input type="text" name="email" class="email">
+      <input type="text" value="test@example.com" name="email" id="email">
       <label>パスワード</label>
-      <input type="password" name="pass" class="pass">
+      <input type="password" value="test" name="pass" id="pass">
     </div>
     <input type="button" value="ログイン" alt="ログイン" id="button">
   </form>
+
 
   <script>
     document.getElementById("button").onclick = function(){
       location.href = "succeed.html";
     }
   </script>
+  
   </body>
 </html>
