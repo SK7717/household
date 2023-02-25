@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>家計簿アプリ</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1 id="title">家計簿アプリ</h1>
+    <p class="fail">ログイン失敗</p>
+    <form>
+    <div class="user_info">
+      <label>メールアドレス</label>
+      <input type="text" name="email" class="email">
+      <label>パスワード</label>
+      <input type="password" name="pass" class="pass">
+    </div>
+    <input type="button" value="ログイン" alt="ログイン" id="button">
+  </form>
+
+  <script>
+    document.getElementById("button").onclick = function(){
+      location.href = "succeed.html";
+    }
+  </script>
+  </body>
+</html>
