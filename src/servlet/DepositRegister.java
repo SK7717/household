@@ -13,11 +13,11 @@ import javax.servlet.http.HttpSession;
 import dao.AccountRegisterDAO;
 import model.AccountBeans;
 
-@WebServlet("/AccountRegister")
-public class AccountRegister extends HttpServlet {
+@WebServlet("/DepositRegister")
+public class DepositRegister extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	public AccountRegister() {
+	public DepositRegister() {
 		super();
 	}
 	
@@ -26,18 +26,23 @@ public class AccountRegister extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userId = request.getParameter("user_id");
-		String address = request.getParameter("address");
-		String password = request.getParameter("password");
+		String category = request.getParameter("category");
+		String date = request.getParameter("date");
+		String amount = request.getParameter("amount");
+		String account = request.getParameter("account");
+		String content = request.getParameter("content");
+		
 		
 		// register.jspから受け取った値をビーンズにセット
 		AccountBeans ab = new AccountBeans();
-		ab.setUserId(userId);
-		ab.setAddress(address);
-		ab.setPassword(password);
+		ab.setCategory(category);
+		ab.setDate(date);
+		ab.setAmount(amount);
+		ab.setAccount(account);
+		ab.setContent(content);
 		
 		// アカウントをDBに登録
-		AccountRegisterDAO ard = new AccountRegisterDAO(ab);
+		AccountRegisterDAO ard = new DepositRegisterDAO(ab);
 		
 		//セッションにアカウント情報を保存
 		HttpSession session = request.getSession();

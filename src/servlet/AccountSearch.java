@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,11 +11,11 @@ import javax.servlet.http.HttpSession;
 
 import model.AccountBeans;
 
-@webServlet("/AccountCheck")
-public class AccountCheck extends HttpServlet {
+@WebServlet("/AccountCheck")
+public class AccountSearch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	public AccountCheck() {
+	public AccountSearch() {
 		super();
 	}
 	
