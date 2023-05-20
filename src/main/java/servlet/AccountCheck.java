@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.DepositDAO;
 import model.AccountBeans;
+import model.DepositBeans;
 
 /**
  * Servlet implementation class AccountCheck
@@ -37,15 +40,33 @@ public class AccountCheck extends HttpServlet {
         HttpSession session = request.getSession();
         AccountBeans ab = (AccountBeans) session.getAttribute("account");
 
-        // ロールでフォワード先を振り分ける
+               
+        // ロールでフォワード先を振り分ける (未使用)
         if(ab.getRole() == 1) {
             RequestDispatcher rd = request.getRequestDispatcher("jsp/admin.jsp");
             rd.forward(request, response);
         } else if(ab.getRole() == 2) {
             RequestDispatcher rd = request.getRequestDispatcher("jsp/user.jsp");
             rd.forward(request, response);
+            //
         } else {
-            RequestDispatcher rd = request.getRequestDispatcher("jsp/deposit.jsp");
+        	
+    		DepositDAO ard = new DepositDAO();
+    		List<DepositBeans> DepositList = ard.findDeposit(ab);
+
+    		int init = 0;
+    		
+    		for(DepositBeans value : DepositList) {
+    			value.getDep_sum();
+    			if (init < value.getDep_sum()) {
+    				init = value.getDep_sum();    				
+    			}
+    	    }
+    		request.setAttribute("total", init);
+        	request.setAttribute("temp", DepositList);
+    	        		
+//            RequestDispatcher rd = request.getRequestDispatcher("jsp/deposit.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("jsp/top.jsp");
             rd.forward(request, response);
         }
     }

@@ -21,7 +21,7 @@ public class AccountRegisterDAO {
 			String sql = "insert into user_data (user_id, address, password) values (?, ?, ?)";
 			PreparedStatement ps = con.prepareStatement(sql);
 			
-			ps.setString(1, ab.getUserId());
+			ps.setInt(1, ab.getUserId());
 			ps.setString(2, ab.getAddress());
 			ps.setString(3, ab.getPassword());
 			

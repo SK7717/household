@@ -28,20 +28,21 @@ public class DepositRegister extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-	  HttpSession session = request.getSession();
-		String userId = (String)session.getAttribute("user_id");
-		String depValue = request.getParameter("dep_value");
+	    HttpSession session = request.getSession();
+        AccountBeans ab = (AccountBeans) session.getAttribute("account");
+
+        int userId = ab.getUserId();
+		int depValue = Integer.parseInt(request.getParameter("dep_value"));
+		String budgetId= request.getParameter("budget_id");
 		String assetsId= request.getParameter("assets_id");
-		String date = request.getParameter("date");
 		String content = request.getParameter("content");
 		
 		// register.jspから受け取った値をビーンズにセット
-		AccountBeans ab = new AccountBeans();
 		DepositBeans db = new DepositBeans();
-		ab.setUserId(userId);
-		db.setDepValue(depValue);
-		db.setUserId(assetsId);
-		db.setDate(date);
+		db.setUserId(userId);
+		db.setDep_value(depValue);
+		db.setBudget_id(budgetId);
+		db.setAssets_id(assetsId);
 		db.setContent(content);
 		
 		// アカウントをDBに登録

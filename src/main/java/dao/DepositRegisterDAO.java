@@ -21,12 +21,11 @@ public class DepositRegisterDAO {
 			String sql = "insert into deposit (user_id, dep_value, budget_id, assets_id, date, content) VALUES (?, ?, ?, ?, NOW(), ?)";
 			PreparedStatement ps = con.prepareStatement(sql);
 			
-			
-			ps.setString(1, db.getDepValue());
-			ps.setString(2, db.getBudgetId());
-			ps.setString(3, db.getAssetsId());
-			ps.setString(3, db.getDate());
-			ps.setString(3, db.getContent());
+			ps.setInt(1, db.getUserId());
+			ps.setInt(2, db.getDep_value());
+			ps.setString(3, db.getBudget_id());
+			ps.setString(4, db.getAssets_id());
+			ps.setString(5, db.getContent());
 			
 			int r = ps.executeUpdate();
 			

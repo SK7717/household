@@ -5,9 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
 <title>ユーザー情報</title>
 </head>
 <body>
+<header>
+<h1>家計簿アプリ</h1>
+</header>
 ここはユーザーページです。<br>
 
 

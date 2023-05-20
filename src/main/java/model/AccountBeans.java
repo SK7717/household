@@ -5,16 +5,16 @@ import java.io.Serializable;
 public class AccountBeans implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	private String userId;
+	private int userId;
 	private String address;
 	private String password;
 	private int role;
 		
-	public String getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 	
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 	

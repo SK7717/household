@@ -34,7 +34,7 @@ public AccountBeans findAccount(AccountBeans ab) {
 				
 		if (rs.next()) {
 			// 見つかったアカウント情報を戻り値にセット
-			returnAb.setUserId(rs.getString("user_id"));
+			returnAb.setUserId(rs.getInt("user_id"));
 			returnAb.setAddress(rs.getString("address"));
 			returnAb.setPassword(rs.getString("password"));
 		} else {

@@ -5,40 +5,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
-<title>入出金入力</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
+	<title>トップ画面</title>
 </head>
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"
   integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg=="
   crossorigin="anonymous"></script>
-<header>
-<h1>家計簿アプリ</h1>
-</header>
 <body>
-    <h1>入出金入力</h1>
-<form action="/household/DepositRegister"" method="post">
-    <input type="hidden" name="user_id" value="<%= session.getAttribute("user_id") %>">
-    <label for="dep_value">登録金額:</label>
-    <input type="text" id="dep_value" name="dep_value">
-    <br>
-    <label for="budget_id">分類ID:</label>
-    <input type="text" id="budget_id" name="budget_id">
-    <br>
-    <label for="assets_id">登録口座番号:</label>
-    <input type="text" id="assets_id" name="assets_id">
-    <br>
-    <label for="date">登録時間:</label>
-    <input type="date" id="date" name="date">
-    <br>
-    <label for="content">内容:</label>
-    <input type="text" id="content" name="content">
-    <br>
-    <input type="submit" value="登録">
-</form>
-<br>
-<h2>登録履歴</h2>
+	<header>
+		<h1>家計簿アプリ</h1>
+	</header>
+	<main>
+	<div class="container">
+		<h2>総資産　\9,999,999</h2>
+		<p>xxxxxx銀行 \9,999,999</p>
+		<p>現金　　\9,999,999</p>
+	</div>
+	<div class="container">
+		<h2>今月の家計簿</h2>
+		<p>収入</p>
+		<p>支出 <c:out value="${total}" /></p>
+		<p>収支 <c:out value="${total}" /></p>
+	</div>
+	<div class="container">
+		<h2>今月の予算</h2>
+		<button>予算入力</button><p style="color: red;">入力済</p>
+	</div>
+	</main>	
+	<a href="jsp/deposit.jsp">家計簿登録</a>
+
+	<h2>登録履歴</h2>
     <table>
         <tr>
             <th>金額</th>
@@ -61,13 +59,11 @@
 
     </c:forEach>
     </table>
-
-<!-- 	<p>合計金額<span id="total"><c:out value="${total}" /></span></p>
-	<canvas id="graf" style="height:50%; width:50%;"></canvas> -->
-
-</body>
-
-<script>
+    
+    	<p>合計金額<span id="total"><c:out value="${total}" /></span></p>
+	<canvas id="graf" style="height:50%; width:50%;"></canvas>
+    
+    <script>
 var ctx = document.getElementById('graf');
 var total = document.getElementsByName('dep_sum');
 var labels = document.getElementsByName('labels');
@@ -106,6 +102,7 @@ var myChart = new Chart(ctx, {
   },
 });
 </script>
+    
 
+</body>
 </html>
-

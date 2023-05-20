@@ -5,8 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
 <title>管理者ページ</title>
 </head>
+<header>
+<h1>家計簿アプリ</h1>
+</header>
 <body>
 ここは管理者用のページです。<br>
 

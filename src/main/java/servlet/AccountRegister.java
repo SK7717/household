@@ -32,7 +32,7 @@ public class AccountRegister extends HttpServlet {
 		
 		// register.jspから受け取った値をビーンズにセット
 		AccountBeans ab = new AccountBeans();
-		ab.setUserId(userId);
+		ab.setUserId(Integer.parseInt(userId));
 		ab.setAddress(address);
 		ab.setPassword(password);
 		
