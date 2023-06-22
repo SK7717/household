@@ -13,55 +13,61 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"
   integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg=="
   crossorigin="anonymous"></script>
+
 <body>
 	<header>
 		<h1>家計簿アプリ</h1>
 	</header>
+	<div class="wrap">
 	<main>
-	<div class="container">
-		<h2>総資産　\9,999,999</h2>
-		<p>xxxxxx銀行 \9,999,999</p>
-		<p>現金　　\9,999,999</p>
-	</div>
-	<div class="container">
-		<h2>今月の家計簿</h2>
-		<p>収入</p>
-		<p>支出 <c:out value="${total}" /></p>
-		<p>収支 <c:out value="${total}" /></p>
-	</div>
-	<div class="container">
-		<h2>今月の予算</h2>
-		<button>予算入力</button><p style="color: red;">入力済</p>
-	</div>
-	</main>	
-	<a href="jsp/deposit.jsp">家計簿登録</a>
-
-	<h2>登録履歴</h2>
-    <table>
-        <tr>
-            <th>金額</th>
-            <th>分類ID</th>
-            <th>登録口座</th>
-            <th>登録日付</th>
-            <th>内容</th>
-        </tr>
-	<c:forEach items="${temp}" var="name" varStatus="status">
-        <tr>
-        	<td><c:out value="${name.dep_value}" /></td>
-        	<td><c:out value="${name.budget_id}" /></td>
-        	<td><c:out value="${name.assets_id}" /></td>
-        	<td><c:out value="${name.date}" /></td>
-        	<td><c:out value="${name.content}" /></td>
-        </tr>
-
-			<input type="hidden" name="dep_sum" value="<c:out value="${name.dep_sum}" />">
-			<input type="hidden" name="labels" value="<c:out value="${name.date}" />">
-
-    </c:forEach>
-    </table>
-    
-    	<p>合計金額<span id="total"><c:out value="${total}" /></span></p>
+		<div class="top_info">
+			<div class="left">
+				<div class="container">
+					<h2>総資産</h2>
+				<div><a href="#"></a><button class="button">編集</button></a></div>
+					<p><span class="total_assets">\9,999,999</span></p>
+					<p>xxxxxx銀行 \9,999,999</p>
+					<p>現金　　\9,999,999</p>
+				</div>
+				<div class="container">
+					<h2>今月の家計簿</h2>
+					<div><a href="jsp/deposit.jsp"><button class="button">家計簿登録</button></a></div>
+					<p>収入</p>
+					<p>支出 <c:out value="${total}" /></p>
+					<p>収支 <c:out value="${total}" /></p>
+				</div>
+			</div>
+			<div class="container">
+				<h2>今月の予算</h2>
+				<div class="budget"><button class="button">予算入力</button></div>
+				<p style="color: red;">入力済</p>
+			</div>
+		</div>
+		<h2>登録履歴</h2>
+	    <table border="1">
+			<tr>
+	            <th>金額</th>
+	            <th>分類ID</th>
+	            <th>登録口座</th>
+	            <th>登録日付</th>
+	            <th>内容</th>
+	        </tr>
+			<c:forEach items="${temp}" var="name" varStatus="status">
+		        <tr>
+		        	<td><c:out value="${name.dep_value}" /></td>
+		        	<td><c:out value="${name.budget_id}" /></td>
+		        	<td><c:out value="${name.assets_id}" /></td>
+		        	<td><c:out value="${name.date}" /></td>
+		        	<td><c:out value="${name.content}" /></td>
+		        </tr>
+				<input type="hidden" name="dep_sum" value="<c:out value="${name.dep_sum}" />">
+				<input type="hidden" name="labels" value="<c:out value="${name.date}" />">
+		    </c:forEach>
+	    </table>
+   	<p>合計金額<span id="total"><c:out value="${total}" /></span></p>
 	<canvas id="graf" style="height:50%; width:50%;"></canvas>
+	</main>	
+    </div>
     
     <script>
 var ctx = document.getElementById('graf');
@@ -83,7 +89,7 @@ labels.forEach(function(Date){
 //alert(dates[0]);
 
 var myChart = new Chart(ctx, {
-  type: 'bar',
+	type: 'bar',
   data: {
     labels: dates,
     datasets: [{

@@ -13,11 +13,13 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"
   integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg=="
   crossorigin="anonymous"></script>
+<body class="deposit">
 <header>
 <h1>家計簿アプリ</h1>
 </header>
-<body>
-    <h1>入出金入力</h1>
+	<div class="wrap">
+<main>
+    <h2>入出金入力</h2>
 <form action="/household/DepositRegister"" method="post">
     <input type="hidden" name="user_id" value="<%= session.getAttribute("user_id") %>">
     <label for="dep_value">登録金額:</label>
@@ -35,7 +37,7 @@
     <label for="content">内容:</label>
     <input type="text" id="content" name="content">
     <br>
-    <input type="submit" value="登録">
+    <input type="submit" value="登録" class="button">
 </form>
 <br>
 <h2>登録履歴</h2>
@@ -64,6 +66,8 @@
 
 <!-- 	<p>合計金額<span id="total"><c:out value="${total}" /></span></p>
 	<canvas id="graf" style="height:50%; width:50%;"></canvas> -->
+</main>
+</div>
 
 </body>
 

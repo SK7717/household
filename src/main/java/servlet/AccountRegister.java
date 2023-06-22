@@ -26,13 +26,11 @@ public class AccountRegister extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userId = request.getParameter("user_id");
 		String address = request.getParameter("address");
 		String password = request.getParameter("password");
 		
 		// register.jspから受け取った値をビーンズにセット
 		AccountBeans ab = new AccountBeans();
-		ab.setUserId(Integer.parseInt(userId));
 		ab.setAddress(address);
 		ab.setPassword(password);
 		
