@@ -24,7 +24,7 @@
 			<div class="left">
 				<div class="container">
 					<h2>総資産</h2>
-				<div><a href="#"></a><button class="button">編集</button></a></div>
+				<div><a href="jsp/bank.jsp"><button class="button">編集</button></a></div>
 					<p><span class="total_assets">\9,999,999</span></p>
 					<p>xxxxxx銀行 \9,999,999</p>
 					<p>現金　　\9,999,999</p>
@@ -39,8 +39,14 @@
 			</div>
 			<div class="container">
 				<h2>今月の予算</h2>
-				<div class="budget"><button class="button">予算入力</button></div>
+				<div><a href="jsp/budget.jsp"><button class="button">予算入力</button></a></div>
 				<p style="color: red;">入力済</p>
+				<p>ダミー：\99,999</p>
+				<p>ダミー：\99,999</p>
+				<p>ダミー：\99,999</p>
+				<p>ダミー：\99,999</p>
+				<p>ダミー：\99,999</p>
+				<p>ダミー：\99,999</p>
 			</div>
 		</div>
 		<h2>登録履歴</h2>
